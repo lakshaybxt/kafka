@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.kafka</groupId>
-	<artifactId>receiver</artifactId>
+	<artifactId>receiver-three</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>receiver</name>
 	<description>Demo project for Spring Boot - Receiver</description>

@@ -1,6 +1,7 @@
 package com.kafka.sender.comfig;
 
 import com.kafka.sender.kafka.event.MessageEvent;
+import com.kafka.sender.kafka.event.TestEvent;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,7 +24,7 @@ public class KafkaConfig {
     private String bootstrapServers;
 
     @Bean
-    public ProducerFactory<String, MessageEvent> producerFactory() {
+    public Map<String, Object> config() {
         Map<String, Object> config = new HashMap<>();
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         config.put(ProducerConfig.ACKS_CONFIG, "all");
@@ -35,11 +36,27 @@ public class KafkaConfig {
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
-        return new DefaultKafkaProducerFactory<>(config);
+        return config;
+
+    }
+
+    @Bean
+    public ProducerFactory<String, MessageEvent> producerFactory() {
+        return new DefaultKafkaProducerFactory<>(config());
     }
 
     @Bean
     public KafkaTemplate<String, MessageEvent> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
+    }
+
+    @Bean
+    public ProducerFactory<String, TestEvent> producerTestFactory() {
+        return new DefaultKafkaProducerFactory<>(config());
+    }
+
+    @Bean
+    public KafkaTemplate<String, TestEvent> kafkaTestTemplate() {
+        return new KafkaTemplate<>(producerTestFactory());
     }
 }

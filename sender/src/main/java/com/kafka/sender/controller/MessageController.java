@@ -1,6 +1,8 @@
 package com.kafka.sender.controller;
 
 import com.kafka.sender.dto.MessageDto;
+import com.kafka.sender.dto.TestDto;
+import com.kafka.sender.kafka.event.TestEvent;
 import com.kafka.sender.service.MessageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,11 @@ public class MessageController {
     @PostMapping(path = "/send")
     public ResponseEntity<String> sendMessage(@RequestBody MessageDto messageDto) {
         return ResponseEntity.ok(messageService.processMessage(messageDto));
+    }
+
+    @PostMapping(path = "/send/test")
+    public ResponseEntity<String> sendMessage(@RequestBody TestDto testDto) {
+        return ResponseEntity.ok(messageService.processTest(testDto));
     }
 
 }

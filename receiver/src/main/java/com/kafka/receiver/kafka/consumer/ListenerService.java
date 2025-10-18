@@ -20,12 +20,13 @@ public class ListenerService {
     private final ObjectMapper objectMapper;
     private final KafkaTemplate<String, StatusEvent> kafkaTemplate;
 
-    @KafkaListener(topics = "topic_all_receive_test", groupId = "receiver-group-one")
+    @KafkaListener(topics = "topic_every_receive_test", groupId = "receiver-group-one")
     public void listen(String message, Acknowledgment ack)  {
         System.out.println("MS1 received: " + message);
         try {
             TestEvent event = objectMapper.readValue(message, TestEvent.class);
-            log.info("Message Event: {}", event);
+            log.info("Test Event: {}", event);
+            log.info("Test Event: {}", event.getId());
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

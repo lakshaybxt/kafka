@@ -20,7 +20,7 @@ public class MessageConsumer {
     private final ObjectMapper objectMapper;
     private final KafkaTemplate<String, StatusEvent> kafkaTemplate;
 
-    @KafkaListener(topics = MESSAGE_TOPIC, groupId = "receiver-group-one")
+    @KafkaListener(topics = MESSAGE_TOPIC, groupId = "receiver-group-two")
     public void consumeMessage(String message) {
         String eventId = "UNKNOWN";
         try {
