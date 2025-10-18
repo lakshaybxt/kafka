@@ -1,4 +1,4 @@
-package com.kafka.receiver.comfig;
+package com.kafka.receiver.config;
 
 import com.kafka.receiver.kafka.event.StatusEvent;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -17,7 +17,7 @@ import java.util.Map;
 
 @EnableKafka
 @Configuration
-public class KafkaConfig {
+public class KafkaProducerConfig {
 
     @Value("${spring.kafka.bootstrap-servers:localhost:9092}")
     private String bootstrapServers;
