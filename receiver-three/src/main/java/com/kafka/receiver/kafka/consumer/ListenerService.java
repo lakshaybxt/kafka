@@ -42,3 +42,5 @@ public class ListenerService {
         }
     }
 }
+
+//https://western-aluminum-170.notion.site/Kafka-290e44bc5a7f80939fe8d4732ef68aba
