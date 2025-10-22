@@ -6,7 +6,7 @@ spring:
     name: sender
 
   kafka:
-    bootstrap-servers: ec2-13-233-193-52.ap-south-1.compute.amazonaws.com:8080
+    bootstrap-servers: ec2-13-204-84-61.ap-south-1.compute.amazonaws.com:8080
     consumer:
       group-id: sender-group
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
