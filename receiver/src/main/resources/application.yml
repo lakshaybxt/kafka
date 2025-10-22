@@ -5,9 +5,9 @@ spring:
   application:
     name: receiver
 
-  # Kafka Configuration - Consumer
+  # Kafka Configuration - Consumer./mvnw
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ec2-13-233-193-52.ap-south-1.compute.amazonaws.com:8080
     consumer:
       group-id: receiver-group-one
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
