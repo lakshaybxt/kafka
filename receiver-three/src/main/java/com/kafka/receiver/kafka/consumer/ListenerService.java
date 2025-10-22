@@ -40,6 +40,5 @@ public class ListenerService {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
-        ack.acknowledge();
     }
 }
